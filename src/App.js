@@ -1,15 +1,35 @@
 import React from 'react';
+import {useEffect,useContext} from 'react';
+
 import './App.css';
+import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import Signup from './Pages/Signup';
+import Home from './Pages/Home';
+import Login from './Pages/Login';
+import { AuthContext } from './store/FirebaseContext';
+
 
 /**
  * ?  =====Import Components=====
  */
-import Home from './Pages/Home';
 
 function App() {
+  const {user}=useContext(AuthContext)
+  useEffect(() => {
+    
+    console.log(user);
+  }, []);
   return (
     <div>
-      <Home />
+      <Router>
+        <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+
+        </Routes>
+      </Router>
     </div>
   );
 }
