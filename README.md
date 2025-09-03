@@ -37,11 +37,3 @@ Install dependencies:
 
 npm install
 Start the dev server:
-
-
-npm run dev
-
-
-arduino
-Copy code
-http://localhost:5173
